@@ -1,0 +1,19 @@
+- name: Add ppa for i3-gaps
+  apt_repository:
+    repo: 'ppa:kgilmer/speed-ricer'
+
+- name: Install i3-gaps
+  apt:
+    name: i3-gaps
+    state: present
+  become: yes
+
+- name: Ensure destination for i3 config exists
+  file:
+    path: $HOME/.config/i3
+    state: directory
+
+- name: Configure i3
+  copy:
+    src: config
+    dest: $HOME/.config/i3/config
