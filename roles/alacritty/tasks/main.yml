@@ -1,14 +1,14 @@
-- name: Add paa for alacritty
+- name: alacritty | Add paa for alacritty
   apt_repository:
     repo: 'ppa:mmstick76/alacritty'
 
-- name: Install alacritty
+- name: alacritty | Install alacritty
   apt:
     name: alacritty
     state: present
   become: yes
 
-- name: Configure alacritty
+- name: alacritty | Configure alacritty
   copy:
     src: alacritty.yml
     dest: $HOME/.alacritty.yml

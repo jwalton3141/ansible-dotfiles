@@ -1,45 +1,45 @@
-- name: Install vim
+- name: vim | Install vim
   apt:
     name: vim
     state: present
   become: yes
 
-- name: Ensure destination exists for vim-plug
+- name: vim | Ensure destination exists for vim-plug
   file:
     path: $HOME/.vim/autoload
     state: directory
 
-- name: Install vim-plug
+- name: vim | Install vim-plug
   get_url:
     url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     dest: $HOME/.vim/autoload/plug.vim
 
-- name: Ensure destination exists for vim tab completion
+- name: vim | Ensure destination exists for vim tab completion
   file:
     path: $HOME/.vim/pack/vendor/start
     state: directory
 
-- name: Provision vim tab-completion
+- name: vim | Provision vim tab-completion
   git:
     repo: https://github.com/ajh17/VimCompletesMe.git
     dest: $HOME/.vim/pack/vendor/start/VimCompletesMe
 
-- name: Ensure destination exists for vim colours
+- name: vim | Ensure destination exists for vim colours
   file:
     dest: $HOME/.vim/colors
     state: directory
 
-- name: Install snazzy colours for vim
+- name: vim | Install snazzy colours for vim
   get_url:
     url: https://raw.githubusercontent.com/connorholyday/vim-snazzy/master/colors/snazzy.vim
     dest: $HOME/.vim/colors
 
-- name: Copy vimrc to $HOME
+- name: vim | Copy vimrc to $HOME
   copy:
     src: vimrc
     dest: $HOME/.vimrc
 
-- name: Install vim plugins
+- name: vim | Install vim plugins
   shell: vim '+PlugInstall --sync' +qall
   register: vim_plug_output
   changed_when: "'Resolving deltas' in vim_plug_output.stdout"

@@ -1,19 +1,19 @@
-- name: Ensure .fonts directory exists
+- name: fonts | Ensure .fonts directory exists
   file:
     path: $HOME/.fonts
     state: directory
 
-- name: Download Regular Fira Nerd Font
+- name: fonts | Download Regular Fira Nerd Font
   get_url:
     url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
     dest: $HOME/.fonts/"Fira Code Regular Nerd Font Complete.ttf"
 
-- name: Download Bold Fira Nerd Font
+- name: fonts | Download Bold Fira Nerd Font
   get_url:
     url: https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/FiraCode/Bold/complete/Fira%20Code%20Bold%20Nerd%20Font%20Complete.ttf
     dest: $HOME/.fonts/"Fira Code Bold Nerd Font Complete.ttf"
 
-- name: Update font cache
+- name: fonts | Update font cache
   shell: 'fc-cache -v $HOME/.fonts'
   register: font_output
   changed_when: '"caching" in font_output.stdout'
