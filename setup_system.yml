@@ -1,0 +1,8 @@
+- name: Set up local machine
+  hosts: local
+  roles:
+    - fonts
+    - zsh
+    - vim
+    - i3-gaps
+    - alacritty
