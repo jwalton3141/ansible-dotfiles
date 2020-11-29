@@ -1,6 +1,7 @@
 - name: Set up local machine
   hosts: local
   roles:
+    - git
     - fonts
     - zsh
     - vim
