@@ -4,3 +4,17 @@
     state: present
   become: yes
 
+- name: git | Copy global gitignore
+  copy:
+    src: gitignore
+    dest: $HOME/.gitignore
+
+- name: git | Copy global gitattributes
+  copy:
+    src: gitattributes
+    dest: $HOME/.gitattributes
+
+- name: git | Set up git config
+  template:
+    src: "gitconfig.j2"
+    dest: $HOME/.gitconfig
