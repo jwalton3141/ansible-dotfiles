@@ -1,0 +1,27 @@
+- name: polybar | Make sure config directory exists for polybar
+  file:
+    path: $HOME/.config/polybar
+    state: directory
+
+- name: polybar | Make sure scripts directory exists for polybar
+  file:
+    path: $HOME/.config/polybar/scripts
+    state: directory
+
+- name: polybar | Copy polybar configuration
+  copy:
+    src: "{{ item }}"
+    dest: $HOME/.config/polybar/
+  with_items:
+    - config-top.ini
+    - colors.ini
+    - modules.ini
+
+- name: polybar | Copy polybar scripts
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    mode: "0755"
+  with_items:
+    - {src: 'launch.sh', dest: '$HOME/.config/polybar/'}
+    - {src: 'pulseaudio-control.sh', dest: '$HOME/.config/polybar/scripts/'}
