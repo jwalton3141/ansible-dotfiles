@@ -1,3 +1,43 @@
+- name: polybar | Install polybar dependencies
+  apt:
+    pkg:
+      - cmake
+      - cmake-data
+      - libcairo2-dev
+      - libxcb1-dev
+      - libxcb-ewmh-dev
+      - libxcb-icccm4-dev
+      - libxcb-image0-dev
+      - libxcb-randr0-dev
+      - libxcb-util0-dev
+      - libxcb-xkb-dev
+      - pkg-config
+      - python3-xcbgen
+      - xcb-proto
+      - libxcb-xrm-dev
+      - libasound2-dev
+      - libmpdclient-dev
+      - libiw-dev
+      - libcurl4-openssl-dev
+      - libpulse-dev
+      - libxcb-composite0-dev
+      - xcb
+      - libxcb-ewmh2
+    state: present
+
+- name: polybar | Clone polybar repo
+  git:
+    repo: https://github.com/jaagr/polybar.git
+    dest: /tmp/polybar
+    version: 3.4.1
+
+- name: polybar | Build and install polybar
+  shell: ./build.sh --all-features --auto
+  args:
+    chdir: /tmp/polybar
+    creates: /usr/local/bin/polybar
+  become: yes
+
 - name: polybar | Make sure config directory exists for polybar
   file:
     path: $HOME/.config/polybar
