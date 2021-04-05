@@ -52,6 +52,8 @@ let g:airline_powerline_fonts = 1
 " File type icons
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'pearofducks/ansible-vim'
+
 Plug 'lervag/vimtex'
 " Fallback to latex when file type ambiguous
 let g:tex_flavor = 'latex'
