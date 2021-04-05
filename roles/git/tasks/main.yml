@@ -16,5 +16,5 @@
 
 - name: git | Set up git config
   template:
-    src: "gitconfig.j2"
+    src: gitconfig.j2
     dest: $HOME/.gitconfig
