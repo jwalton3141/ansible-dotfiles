@@ -1,5 +1,5 @@
 This project aims to configure a lightweight, performant and keyboard driven
-Ubuntu.
+Ubuntu desktop.
 
 ![example
 desktop](https://raw.githubusercontent.com/jwalton3141/dotfiles/main/example-1.png)
