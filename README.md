@@ -20,13 +20,8 @@ desktop](https://raw.githubusercontent.com/jwalton3141/dotfiles/main/example-1.p
 
 ## I want it
 
-To configure your machine with the above listed softwares:
-
 ```sh
 git clone git@github.com:jwalton3141/ansible-dotfiles.git \
   && cd ansible-dotfiles \
   && ./bin/setup.sh
 ```
-
-_But remember: do not execute code you find on the internet which you don't
-trust or understand the possible implications of._
