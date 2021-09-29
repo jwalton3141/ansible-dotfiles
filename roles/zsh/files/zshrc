@@ -22,3 +22,6 @@ do
         source $HOME/.$file
     fi
 done
+
+# Don't show active venv in prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
