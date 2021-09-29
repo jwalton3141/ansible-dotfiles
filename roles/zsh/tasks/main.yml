@@ -4,6 +4,11 @@
     state: present
   become: yes
 
+- name: zsh | Configure zsh with .zshrc
+  copy:
+    src: zshrc
+    dest: $HOME/.zshrc
+
 - name: zsh | Install oh-my-zsh
   git:
     repo: https://github.com/ohmyzsh/ohmyzsh.git 
